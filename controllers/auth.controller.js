@@ -5,6 +5,7 @@ const Role = require('../models/role');
 
 // LOGIN
 exports.login = async (req, res) => {
+   console.log("Received API call to login");
   try {
     const { email, password } = req.body;
 
@@ -37,6 +38,7 @@ exports.login = async (req, res) => {
 
 //CREATE ACCOUNT
 exports.createAccount = async (req, res) => {
+   console.log("Received API call to create use acc");
   try {
     const { username, email, password, role } = req.body;
 

@@ -75,6 +75,7 @@ const Permission = require('../models/permissions');
 
 // CREATE STAFF
 exports.createStaff = async (req, res) => {
+  console.log("Received API call to create staff details");
   try {
     const { username, email, password, permissions = [] } = req.body;
 
@@ -168,8 +169,6 @@ exports.getAllStaff = async (req, res) => {
 
     //  Query users that have this role ID
     const staff = await User.find({ role: staffRole._id }).populate('role');
-    
-    console.log(staff);
     res.status(200).json(staff);
   } catch (error) {
     console.error("Error fetching staff:", error);
@@ -179,6 +178,7 @@ exports.getAllStaff = async (req, res) => {
 
 // UPDATE STAFF
 exports.updateStaff = async (req, res) => {
+  console.log("Received API call to update staff details");
   try {
     const { id } = req.params;
 
@@ -201,6 +201,7 @@ exports.updateStaff = async (req, res) => {
 // DELETE STAFF
 
 exports.deleteStaff = async (req, res) => {
+  console.log("Received API call to delete staff details");
   try {
     const { id } = req.params;
 

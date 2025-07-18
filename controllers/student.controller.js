@@ -84,6 +84,7 @@ const getRoleName = async (roleField) => {
 // };
 
 exports.createStudent = async (req, res) => {
+  console.log("Received API call to create student details");
   try {
     const user = await User.findById(req.user.id).populate('role');
     const roleName = await getRoleName(user.role);
@@ -172,6 +173,7 @@ exports.createStudent = async (req, res) => {
 // };
 
 exports.getAllStudents = async (req, res, next) => {
+   console.log("Received API call to get all student details");
   try {
     const user = await User.findById(req.user.id).populate('role');
     const roleName = await getRoleName(user.role);
@@ -200,6 +202,7 @@ exports.getAllStudents = async (req, res, next) => {
 
 // UPDATE STUDENT
 exports.updateStudent = async (req, res) => {
+   console.log("Received API call to update student details");
   try {
     const user = await User.findById(req.user.id).populate('role');
     const { id } = req.params;
@@ -227,6 +230,7 @@ exports.updateStudent = async (req, res) => {
 
 //  DELETE STUDENT
 exports.deleteStudent = async (req, res) => {
+   console.log("Received API call to delete student details");
   try {
     const user = await User.findById(req.user.id).populate('role');
     const { id } = req.params;
