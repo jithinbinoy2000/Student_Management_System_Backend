@@ -1,15 +1,3 @@
-// // const { User } = require('../models');
-// const User = require("../models/user");
-// exports.hasPermission = (action) => {
-//   return async (req, res, next) => {
-//     const user = await User.findById(req.user.id).populate('permissions');
-//     const allowed = user.permissions.some(p => p.module === 'student' && p.action === action);
-//     if (!allowed) return res.status(403).json({ message: 'Permission denied' });
-//     next();
-//   };
-// };
-
-
 const User = require("../models/user");
 const Role = require("../models/role");
 

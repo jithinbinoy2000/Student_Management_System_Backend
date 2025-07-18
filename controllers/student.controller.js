@@ -4,25 +4,6 @@ const Role = require('../models/role');
 const User = require('../models/user');
 
 // Utility: Check if user has permission for a student module action
-// const hasPermission = async (userId, action) => {
-//   console.log(userId,action)
-//   const permission = await Permission.findOne({
-//     grantedTo: userId,
-//     module: 'student',
-//     action,
-//   });
-//   return !!permission;
-// };
-
-// const hasPermission = async (userId, action) => {
-//   const user = await User.findById(userId); // No need to populate anything
-//   if (!user || !user.permissions) return false;
-
-//   return user.permissions.some(
-//     (perm) => perm.module === 'student' && perm.action === action
-//   );
-// };
-
 const hasPermission = async (userId, action, module = 'student') => {
   const user = await User.findById(userId).populate('role');
   if (!user) return false;

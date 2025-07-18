@@ -108,7 +108,8 @@ exports.createStaff = async (req, res) => {
 
     await user.save();
 
-    // Assign permissions from frontend, if provided. Otherwise, use default.
+    // Assign permissions from frontend, if provided.
+    //  Otherwise, use default.
     let userPermissions = [];
 
     if (permissions.length > 0) {
@@ -130,7 +131,7 @@ exports.createStaff = async (req, res) => {
 
     await Permission.insertMany(userPermissions);
 
-    //  Populate role in response (optional)
+    //  Populate role in response 
     await user.populate('role');
 
     //  Return response
